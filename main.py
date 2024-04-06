@@ -7,7 +7,7 @@ def Board():
     print(f" 6 | 7 | 8 ")
 
 
-if __name__ == "__main":
+if __name__ == "__main__":
     xstate = [0, 0, 0, 0, 0, 0, 0, 0]
     ostate = [0, 0, 0, 0, 0, 0, 0, 0]
     print("Welcome to TIC TAC TOE !")
