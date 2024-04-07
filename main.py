@@ -45,8 +45,8 @@ if __name__ == "__main__":
             print("O's Chance")
             value = int(input("Please Enter a value to place 'O' "))
             ostate[value] = 1
-        check_win(xstate, ostate)
-        if check_win != -1:
+        win = check_win(xstate, ostate)
+        if win != -1:
             break
 
         turn = 1 - turn
