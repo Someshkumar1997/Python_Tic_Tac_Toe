@@ -1,4 +1,8 @@
 
+def sum(a, b, c):
+    return a + b + c
+
+
 def Board():
     zero = 'X' if xstate[0] else 'O' if ostate[0] else 0
     one = 'X' if xstate[1] else 'O' if ostate[1] else 1
@@ -15,6 +19,16 @@ def Board():
     print(f"---|---|---")
     print(f" {six} | {seven} | {eight} ")
 
+def check_win(xstate, ostate):
+    winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+    for win in winner:
+        if sum(xstate[win[0]], xstate[win[1]], xstate[win[2]]) == 3:
+            print("Winner is 'X' !")
+            return 1
+        if sum(ostate[win[0]], ostate[win[1]], ostate[win[2]]) == 3:
+            print("Winner is 'O' !")
+            return 0
+    return -1
 
 if __name__ == "__main__":
     xstate = [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -31,5 +45,10 @@ if __name__ == "__main__":
             print("O's Chance")
             value = int(input("Please Enter a value to place 'O' "))
             ostate[value] = 1
+        check_win(xstate, ostate)
+        if check_win != -1:
+            break
 
         turn = 1 - turn
+
+
